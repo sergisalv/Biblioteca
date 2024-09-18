@@ -11,6 +11,6 @@ public interface LibroService {
     void addLibro(Libro libro);
     void updateLibro(Integer id, Libro updateLibro);
     void removeLibro(Integer id);
-    List<Libro> searchLibro(String titulo, Integer isbn);
+    List<Libro> searchLibro(String titulo, String isbn);
 
 }

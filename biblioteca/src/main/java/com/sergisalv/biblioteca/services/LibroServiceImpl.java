@@ -51,7 +51,7 @@ public class LibroServiceImpl implements LibroService{
     }
 
     @Override
-    public List<Libro> searchLibro(String titulo, Integer isbn) {
+    public List<Libro> searchLibro(String titulo, String isbn) {
         return repository.findByTituloOrIsbn(titulo,isbn);
     }
 }
