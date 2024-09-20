@@ -45,7 +45,7 @@ async function onClickRemove(id){
     if(!response){
         return;
     }
-    let url = 'http://localhost:8080/api/' + 'customer/' + id;
+    let url = 'http://localhost:8080/api/' + 'libro/' + id;
     let config = {
         method: 'DELETE',
         headers: {
@@ -54,7 +54,7 @@ async function onClickRemove(id){
         }
     };
      await fetch(url, config);
-     renderCustomer();
+     renderLibro();
     
 }
 
