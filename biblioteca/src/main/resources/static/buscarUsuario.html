@@ -18,12 +18,12 @@
             <input type="hidden" name="id">
             <div class="mb-3">
                 <label id="email" class="form-label" style="color: white">Email</label>
-                <input class="form-control" type ="text" name="email" placeholder="Email">
+                <input class="form-control" type ="text" id="txtEmail" placeholder="Email">
             </div>
             <hr>
             <div class="text-center mb-3">
-                <a class="btn btn-secondary" href="administrador.html">Cancelar</a>
-                <button class="btn btn-primary">Buscar</button>
+                <a class="btn btn-secondary" href="administrador.html">Atrás</a>
+                <a onclick="searchUsuario()" class="btn btn-primary" >Buscar</a>
             </div>
         </form>
 
@@ -44,18 +44,15 @@
 
         <tbody id="tbody-usuario">
             <tr>
-                <td> 1 </td>
-                <td> email@email.com </td>
-                <td> 1,2,3 </td>
-                <td>
-                    <a class="btn btn-warning" href="editarUsuario.html">Editar</a>
-                    <a class="btn btn-danger">Eliminar</a>
-                </td>
+                <td>  </td>
+                <td>  </td>
+                <td> </td>
+                <td> </td>
             </tr>
         </tbody>
 
     </table>
 </div>
-
+<script src="js/searchUsuario.js"></script>
 </body>
 </html>

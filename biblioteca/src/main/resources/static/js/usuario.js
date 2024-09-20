@@ -1,6 +1,6 @@
 function init(){
     renderLibro();
-
+ 
  }
 
  async function getLibros(){
@@ -34,32 +34,6 @@ function init(){
     tbody.innerHTML = html;
 }
 
-
-
-
-async function onClickEdit(id) {
-    
-    window.location.href = 'editarLibro.html?id=' + id;
-}
-
-async function onClickRemove(id){
-    let response = confirm("¿Quiere borrar este libro?")
-    if(!response){
-        return;
-    }
-    let url = 'http://localhost:8080/api/' + 'libro/' + id;
-    let config = {
-        method: 'DELETE',
-        headers: {
-            'Content-Type' : 'application/json',
-            /*'Authorization' : sessionStorage.token*/
-        }
-    };
-     await fetch(url, config);
-     renderLibro();
-    
-}
-
 function getHtmlRowLibros(libro){
     return `<tr>
                 <td>${libro.id} </td>
@@ -74,11 +48,9 @@ function getHtmlRowLibros(libro){
             </tr>`;
     
     }
-
-
-
-
-
     
     
     init();
+
+
+
