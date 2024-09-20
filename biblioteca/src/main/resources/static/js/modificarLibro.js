@@ -46,7 +46,7 @@ function clickCreate(){
     let autor = document.getElementById('txtAutor').value;
     let isbn = document.getElementById('txtIsbn').value;
     let disponibles = document.getElementById('txtDisponibles').value;
-    let id =document.getElementById('txtId').value;
+    
 
     let libro = {
        "titulo": titulo,
@@ -54,29 +54,32 @@ function clickCreate(){
         "isbn": isbn,
         "disponibles": disponibles
         };
-        save(libro, id);
+        save(libro);
 }
 
-async function save(libro, id){
+async function save(libro){
      
     let url = 'http://localhost:8080/api/' + 'libro';
     let methodType = isNew() ? 'Post' : 'Put'; 
 
     if (!isNew()){
-       url += '/' + id;
+       url += '/' + getLibroId();
        
     }
     let config = {
         "method": methodType,
         "body": JSON.stringify(libro),
         "headers":{
-           'Content-Type':'application/json',
+           'Content-Type':'application/json'
            /*'Authorization' : sessionStorage.token*/
         }
 
     };
 
      await fetch(url, config);
+
+     window.alert("Libro guardado correctamente");
+     window.location.href = 'administrador.html';
 
      
     

@@ -15,7 +15,6 @@
         </div>
 
         <form>
-            <input type="hidden" name="id" id="txtId">
             <div class="mb-3">
                 <label id="titulo" class="form-label" style="color: white">Título</label>
                 <input class="form-control" type ="text" id="txtTitulo" placeholder="Título">
@@ -26,7 +25,7 @@
             </div>
             <div class="mb-3">
                 <label id="isbn" class="form-label" style="color: white">ISBN</label>
-                <input class="form-control" type ="text" id="TxtIsbn" placeholder="ISBN">
+                <input class="form-control" type ="text" id="txtIsbn" placeholder="ISBN">
             </div>
             <div class="mb-3"></div>
                 <label id="disponibles" class="form-label" style="color: white">Disponibles</label>
@@ -35,12 +34,12 @@
             <hr>
             <div class="text-center mb-3">
                 <a class="btn btn-secondary" href="administrador.html">Atrás</a>
-                <button onClick="clickCreate()" class="btn btn-primary" >Guardar</button>
+                <a onClick="clickCreate()" class="btn btn-primary" >Guardar</a>
             </div>
         </form>
 
     </div>
 </div>
-<script src="js/registrarLibro.js"></script>
+<script src="js/modificarLibro.js"></script>
 </body>
 </html>
