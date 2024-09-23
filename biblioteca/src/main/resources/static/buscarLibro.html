@@ -18,21 +18,48 @@
             <input type="hidden" name="id">
             <div class="mb-3">
                 <label id="titulo" class="form-label" style="color: white">Título</label>
-                <input class="form-control" type ="text" name="titulo" placeholder="Título">
+                <input class="form-control" type ="text" id="txtTitulo" placeholder="Título">
             </div>
             <div class="mb-3">
                 <label id="isbn" class="form-label" style="color: white">ISBN</label>
-                <input class="form-control" type ="text" name="isbn" placeholder="ISBN">
+                <input class="form-control" type ="text" id="txtIsbn" placeholder="ISBN">
             </div>
             <hr>
             <div class="text-center mb-3">
                 <a class="btn btn-secondary" href="administrador.html">Atrás</a>
-                <a class="btn btn-primary">Buscar</a>
+                <a class="btn btn-primary" onclick="searchLibro()">Buscar</a>
             </div>
         </form>
 
     </div>
-</div>
+    <div class="mt-2"></div>
+    <table class= "table table-hover">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>TÍTULO</th>
+            <th>AUTOR</th>
+            <th>ISBN</th>
+            <th>DISPONIBLES</th>
+            <th>OPCIONES</th>
+        </tr>
 
+        </thead>
+
+        <tbody id="tbody-libro">
+            <tr>
+                <td>  </td>
+                <td>  </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+            </tr>
+        </tbody>
+
+    </table>
+</div>
+</div>
+<script src="js/searchLibro.js"></script>
 </body>
 </html>

@@ -14,5 +14,5 @@ public interface LibroRepository extends CrudRepository<Libro,Integer> {
     //SQL
     @Query("SELECT c FROM Libro c WHERE titulo LIKE %:titulo% OR isbn LIKE %:isbn%")
 
-    List<Libro> findByTituloOrIsbn(@Param("titulo") String titulo, String isbn);
+    List<Libro> findByTituloOrIsbn(@Param("titulo") String titulo, @Param("isbn") String isbn);
 }

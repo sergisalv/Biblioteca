@@ -44,7 +44,12 @@ public class LibroController {
     @GetMapping("libro/search") //Buscamos un libro
     public List<Libro> searchLibro (@RequestParam(name ="titulo", required = false) String titulo,
                                     @RequestParam(name="isbn", required = false) String isbn){
-        return service.searchLibro(titulo.toUpperCase(), isbn);
+        if(titulo == null){
+            return service.searchLibro(titulo, isbn);
+        }else{
+            return service.searchLibro(titulo.toUpperCase(), isbn);
+        }
+
     }
 
 
