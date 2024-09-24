@@ -54,4 +54,17 @@ public class LibroServiceImpl implements LibroService{
     public List<Libro> searchLibro(String titulo, String isbn) {
         return repository.findByTituloOrIsbn(titulo,isbn);
     }
+
+    @Override
+    public List<Libro> getLibrosPrestamo(String prestamo) {
+        List<Libro> list = new ArrayList<>();
+        String[] numbers = prestamo.split(",");
+
+        for(String number : numbers){
+        Optional<Libro> libros = repository.findById(Integer.valueOf(number));
+        list.add(libros.get());
+        }
+        return list;
+
+    }
 }

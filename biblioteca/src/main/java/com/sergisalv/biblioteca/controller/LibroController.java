@@ -20,6 +20,11 @@ public class LibroController {
         return service.getLibro(id);
     }
 
+    @GetMapping("/libro/prestamo") //Trae los libros que haya en préstamo
+    public List<Libro> getLibrosPrestamo(@RequestBody String prestamo){
+        return service.getLibrosPrestamo(prestamo);
+    }
+    
     @GetMapping("/libro") //Trae todos los libros
     public List<Libro> getAllLibros(){
         return service.getAllLibros();

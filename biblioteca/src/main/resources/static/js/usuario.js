@@ -4,10 +4,12 @@ function init(){
  }
 
  async function getLibros(){
-    let url = 'http://localhost:8080/api/' + 'libro';
+
+    let url = 'http://localhost:8080/api/' + 'libro/prestamo';
 
     let config = {
         method: 'GET',
+        body: JSON.stringify(usuario.prestamo),
         headers: {
             'Content-Type' : 'application/json',
             /*
