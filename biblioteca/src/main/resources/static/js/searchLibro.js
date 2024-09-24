@@ -1,10 +1,10 @@
 
-async function renderLibro(json){
+async function renderLibro(json, userAdmin){
     let libros = await json;
     let html = '';
     
 for (let libro of libros){
-        html += getHtmlRowLibros(libro);
+        html += getHtmlRowLibros(libro, userAdmin);
     }
 
     let tbody = document.getElementById('tbody-libro');
@@ -14,8 +14,9 @@ for (let libro of libros){
 }
 
 
-function getHtmlRowLibros(libro){
-    return `<tr>
+function getHtmlRowLibros(libro, userAdmin){
+    if(userAdmin == 'admin'){
+       return `<tr>
                 <td>${libro.id} </td>
                 <td>${libro.titulo}</td>
                 <td>${libro.autor}</td>
@@ -25,11 +26,22 @@ function getHtmlRowLibros(libro){
                     <a href="#" onClick="onClickEdit(${libro.id})" class="btn btn-warning">Editar</a>
                     <a href="#" onClick="onClickRemove(${libro.id})" class="btn btn-danger">Eliminar</a>
                 </td>
-            </tr>`;
+            </tr>`; 
+    }else{
+        return `<tr>
+                <td>${libro.id} </td>
+                <td>${libro.titulo}</td>
+                <td>${libro.autor}</td>
+                <td>${libro.isbn}</td>
+                <td>${libro.disponibles}</td>
+            </tr>`; 
+    }
+
+    
     
     }
 
-    async function searchLibro(){
+    async function searchLibro(userAdmin){
         let titulo = document.getElementById('txtTitulo').value;
         let isbn = document.getElementById('txtIsbn').value;
         let url ="";
@@ -55,7 +67,7 @@ function getHtmlRowLibros(libro){
         let response = await fetch(url, config);
         let json =  await response.json();
 
-         renderLibro(json)
+         renderLibro(json, userAdmin)
 
 
          /*await fetch(url, config);*/
