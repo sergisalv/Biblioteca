@@ -18,21 +18,21 @@
             <input type="hidden" name="id">
             <div class="mb-3">
                 <label id="email" class="form-label" style="color: white">Email</label>
-                <input class="form-control" type ="text" name="email" placeholder="Email">
+                <input class="form-control" type ="text" id="txtEmail" placeholder="Email">
             </div>
             <div class="mb-3">
                 <label id="prestamo" class="form-label" style="color: white">En Préstamo</label>
-                <input class="form-control" type ="text" name="prestamo" placeholder="En Préstamo">
+                <input class="form-control" type ="text" id="txtPrestamo" placeholder="En Préstamo">
             </div>
             <hr>
             <div class="text-center mb-3">
                 <a class="btn btn-secondary" href="buscarUsuario.html">Cancelar</a>
-                <a class="btn btn-primary" type ="submit">Guardar</a>
+                <a class="btn btn-primary" onclick="clickCreate()" type ="submit">Guardar</a>
             </div>
         </form>
 
     </div>
 </div>
-
+<script src="js/modificarUsuario.js"></script>
 </body>
 </html>
