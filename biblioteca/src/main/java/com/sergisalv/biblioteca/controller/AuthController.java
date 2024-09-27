@@ -1,11 +1,15 @@
 package com.sergisalv.biblioteca.controller;
 
+import com.google.common.hash.Hashing;
 import com.sergisalv.biblioteca.Utils.JwtUtil;
 import com.sergisalv.biblioteca.dto.RequestLogin;
 import com.sergisalv.biblioteca.entities.Usuario;
+import com.sergisalv.biblioteca.repository.UsuarioRepository;
 import com.sergisalv.biblioteca.services.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.nio.charset.StandardCharsets;
 
 @RestController
 @RequestMapping("/api")
@@ -15,6 +19,7 @@ public class AuthController {
     @Autowired
     private AuthService service;
 
+
     @PostMapping("/auth/login")
     public String login(@RequestBody RequestLogin request){
         String email = request.getEmail();
@@ -22,6 +27,11 @@ public class AuthController {
         Usuario usuario = service.login(email,password);
         String token = JwtUtil.generateToken(usuario);
         return token;
+    }
+
+    @PostMapping("/auth/register")
+    public void registerUsuario(@RequestBody Usuario usuario){
+        service.register(usuario);
     }
 }
 

@@ -31,7 +31,7 @@ public class UsuarioController {
     }
 
     @PostMapping("/usuario")
-    public void registerUsuario(@RequestBody Usuario usuario){
+    public void addUsuario(@RequestBody Usuario usuario){
         service.addUsuario(usuario);
     }
 

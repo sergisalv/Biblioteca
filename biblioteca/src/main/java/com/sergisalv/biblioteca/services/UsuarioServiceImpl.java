@@ -54,11 +54,6 @@ public class UsuarioServiceImpl implements UsuarioService{
     @Override
     public void addUsuario(Usuario usuario) {
 
-        String hashPassword = Hashing.sha256()
-                .hashString(usuario.getPassword() + System.getenv("Palabra_Secreta"), StandardCharsets.UTF_8)
-                .toString();
-
-        usuario.setPassword(hashPassword);
         repository.save(usuario);
     }
 

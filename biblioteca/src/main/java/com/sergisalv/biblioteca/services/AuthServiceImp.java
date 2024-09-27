@@ -33,4 +33,14 @@ public class AuthServiceImp implements AuthService{
             //encontró el usuario
         }
     }
+
+    @Override
+    public void register(Usuario usuario) {
+        String hashPassword = Hashing.sha256()
+                .hashString(usuario.getPassword() + System.getenv("Palabra_Secreta"), StandardCharsets.UTF_8)
+                .toString();
+
+        usuario.setPassword(hashPassword);
+        usuarioRepository.save(usuario);
+    }
 }
