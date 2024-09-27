@@ -1,10 +1,12 @@
 package com.sergisalv.biblioteca.services;
 
+import com.google.common.hash.Hashing;
 import com.sergisalv.biblioteca.entities.Usuario;
 import com.sergisalv.biblioteca.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -48,9 +50,15 @@ public class UsuarioServiceImpl implements UsuarioService{
         repository.save(updateUsuario);
 
     }
-
+    //Todo Terminar y cambiar palabra secreta por variable
     @Override
     public void addUsuario(Usuario usuario) {
+
+        String hashPassword = Hashing.sha256()
+                .hashString(usuario.getPassword() + System.getenv("Palabra_Secreta"), StandardCharsets.UTF_8)
+                .toString();
+
+        usuario.setPassword(hashPassword);
         repository.save(usuario);
     }
 

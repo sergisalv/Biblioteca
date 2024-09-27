@@ -13,7 +13,7 @@ import java.util.List;
 
 @Service
 public class AuthServiceImp implements AuthService{
-    private static final String SECRET_KEY = "gj43jng9";
+
     @Autowired
     private UsuarioRepository usuarioRepository;
 
@@ -21,7 +21,7 @@ public class AuthServiceImp implements AuthService{
     @Override
     public Usuario login(String email, String password) {
         String hashPassword = Hashing.sha256()
-                .hashString(password + SECRET_KEY, StandardCharsets.UTF_8)
+                .hashString(password + System.getenv("Palabra_Secreta"), StandardCharsets.UTF_8)
                 .toString();
 
         List<Usuario> result = usuarioRepository.findByEmailAndPassword(email,hashPassword);

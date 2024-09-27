@@ -11,21 +11,21 @@ import java.util.Date;
 
 public class JwtUtil {
 
-    private static final String SECRET_KEY = "gj43jng9";
+    //TODO cambiar palabra secreta por variable
 
-    private static final Algorithm algorithm = Algorithm.HMAC256(SECRET_KEY);
+    private static final Algorithm algorithm = Algorithm.HMAC256(System.getenv("Palabra_Secreta"));
 
     public static String generateToken(Usuario usuario){
 
         String token = JWT.create().withIssuer("SergioSM")
-                .withClaim("userId",usuario.getId())
+                .withClaim("usuarioId",usuario.getId())
                 .withIssuedAt(new Date())
-                .withExpiresAt(getExpiresDate())
+                //.withExpiresAt(getExpiresDate())
                 .sign(algorithm);
 
         return token;
     }
-
+//Si queremos que el Token expire podemos descomentar la línea de arriba.
     private static Date getExpiresDate(){
         return new Date(System.currentTimeMillis()
                 + (1000L * 60 * 60 * 24 * 14)); //14 días
@@ -37,7 +37,7 @@ public class JwtUtil {
                 .build();
 
         DecodedJWT decoded = verifier.verify(token);
-        String userID = decoded.getClaim("userId").toString();
+        String userID = decoded.getClaim("usuarioId").toString();
         return userID;
     }
 }

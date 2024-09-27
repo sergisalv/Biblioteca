@@ -1,6 +1,7 @@
 package com.sergisalv.biblioteca.controller;
 
 import com.sergisalv.biblioteca.Utils.JwtUtil;
+import com.sergisalv.biblioteca.dto.RequestLogin;
 import com.sergisalv.biblioteca.entities.Usuario;
 import com.sergisalv.biblioteca.services.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
