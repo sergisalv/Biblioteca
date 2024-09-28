@@ -10,8 +10,7 @@ function init(){
         method: 'GET',
         headers: {
             'Content-Type' : 'application/json',
-            /*
-            'Authorization' : sessionStorage.token */
+            'Authorization' : sessionStorage.token 
         }
     }
 
@@ -52,7 +51,7 @@ async function onClickRemove(id){
         method: 'DELETE',
         headers: {
             'Content-Type' : 'application/json',
-            /*'Authorization' : sessionStorage.token*/
+            'Authorization' : sessionStorage.token
         }
     };
      await fetch(url, config);
@@ -73,6 +72,11 @@ function getHtmlRowLibros(libro){
                 </td>
             </tr>`;
     
+    }
+
+    function onClickLogOut(){
+        sessionStorage.token = null;
+        window.location.href = 'login.html';
     }
 
 

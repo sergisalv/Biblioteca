@@ -28,7 +28,7 @@ async function getUsuariosById(id){
         method: 'GET',
         headers: {
             'Content-Type' : 'application/json',
-            /*'Authorization' : sessionStorage.token*/
+            'Authorization' : sessionStorage.token
         }
     };
     
@@ -65,8 +65,8 @@ async function save(usuario){
         "method": methodType,
         "body": JSON.stringify(usuario),
         "headers":{
-           'Content-Type':'application/json'
-           /*'Authorization' : sessionStorage.token*/
+           'Content-Type':'application/json',
+           'Authorization' : sessionStorage.token
         }
 
     };

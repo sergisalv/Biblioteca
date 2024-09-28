@@ -38,7 +38,10 @@ public class UsuarioController {
     @PutMapping("/usuario/{id}")
     public void updateUsuario(@PathVariable Integer id,
                               @RequestBody Usuario updateUsuario){
+        Usuario oldUser = service.getUsuario(id);
+
         updateUsuario.setId(id);
+        updateUsuario.setPassword(oldUser.getPassword());
         service.updateCustomer(id,updateUsuario);
     }
 

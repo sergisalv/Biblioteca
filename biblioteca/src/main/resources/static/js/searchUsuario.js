@@ -37,7 +37,7 @@ function getHtmlRowUsuarios(usuario){
             method: 'GET',
             headers: {
                 'Content-Type' : 'application/json',
-                /*'Authorization' : sessionStorage.token*/
+                'Authorization' : sessionStorage.token
             }
         };
         let response = await fetch(url, config);
@@ -46,7 +46,7 @@ function getHtmlRowUsuarios(usuario){
          renderUsuario(json)
 
 
-         /*await fetch(url, config);*/
+         
         
     }
     async function onClickEdit(id) {
@@ -64,7 +64,7 @@ function getHtmlRowUsuarios(usuario){
             method: 'DELETE',
             headers: {
                 'Content-Type' : 'application/json',
-                /*'Authorization' : sessionStorage.token*/
+                'Authorization' : sessionStorage.token
             }
         };
          await fetch(url, config);

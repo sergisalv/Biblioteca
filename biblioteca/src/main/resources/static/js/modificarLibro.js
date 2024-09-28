@@ -30,7 +30,7 @@ async function getLibrosById(id){
         method: 'GET',
         headers: {
             'Content-Type' : 'application/json',
-            /*'Authorization' : sessionStorage.token*/
+            'Authorization' : sessionStorage.token
         }
     };
     
@@ -70,8 +70,8 @@ async function save(libro){
         "method": methodType,
         "body": JSON.stringify(libro),
         "headers":{
-           'Content-Type':'application/json'
-           /*'Authorization' : sessionStorage.token*/
+           'Content-Type':'application/json',
+           'Authorization' : sessionStorage.token
         }
 
     };

@@ -61,7 +61,7 @@ function getHtmlRowLibros(libro, userAdmin){
             method: 'GET',
             headers: {
                 'Content-Type' : 'application/json',
-                /*'Authorization' : sessionStorage.token*/
+                'Authorization' : sessionStorage.token
             }
         };
         let response = await fetch(url, config);
@@ -88,7 +88,7 @@ function getHtmlRowLibros(libro, userAdmin){
             method: 'DELETE',
             headers: {
                 'Content-Type' : 'application/json',
-                /*'Authorization' : sessionStorage.token*/
+                'Authorization' : sessionStorage.token
             }
         };
          await fetch(url, config);

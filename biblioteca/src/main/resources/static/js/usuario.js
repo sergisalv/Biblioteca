@@ -12,8 +12,7 @@ function init(){
         body: JSON.stringify(usuario.prestamo),
         headers: {
             'Content-Type' : 'application/json',
-            /*
-            'Authorization' : sessionStorage.token */
+            'Authorization' : sessionStorage.token 
         }
     }
 
@@ -49,6 +48,11 @@ function getHtmlRowLibros(libro){
                 </td>
             </tr>`;
     
+    }
+
+    function onClickLogOut(){
+        sessionStorage.token = null;
+        window.location.href = 'login.html';
     }
     
     
