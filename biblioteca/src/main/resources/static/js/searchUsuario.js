@@ -30,7 +30,9 @@ function getHtmlRowUsuarios(usuario){
     }
 
     async function searchUsuario(){
-        let email = document.getElementById('txtEmail').value;
+
+        if(isAdministrador()){
+          let email = document.getElementById('txtEmail').value;
     
         let url = 'http://localhost:8080/api/' + 'usuario/search?email=' + email;
         let config = {
@@ -44,11 +46,39 @@ function getHtmlRowUsuarios(usuario){
         let json =  await response.json();
 
          renderUsuario(json)
+  
+        }
 
+        
 
          
         
     }
+
+    async function isAdministrador(){
+        let url = 'http://localhost:8080/api/' + 'auth/administrator';
+    
+        let config = {
+            method: 'GET',
+            headers: {
+                'Content-Type' : 'application/json',
+                'Authorization' : sessionStorage.token 
+            }
+        }
+    
+    
+        let response = await fetch(url, config);
+        let administrator = await response.text();
+        if (administrator.includes(true)){
+           return true;
+        }else{
+            window.alert('Usted no tiene permisos de administrador');
+            window.location.href='login.html';
+        }
+     }
+
+
+
     async function onClickEdit(id) {
     
         window.location.href = 'editarUsuario.html?id=' + id;

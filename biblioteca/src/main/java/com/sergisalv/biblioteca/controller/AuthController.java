@@ -6,6 +6,7 @@ import com.sergisalv.biblioteca.dto.RequestLogin;
 import com.sergisalv.biblioteca.entities.Usuario;
 import com.sergisalv.biblioteca.repository.UsuarioRepository;
 import com.sergisalv.biblioteca.services.AuthService;
+import com.sergisalv.biblioteca.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,6 +19,9 @@ public class AuthController {
 
     @Autowired
     private AuthService service;
+
+    @Autowired
+    private UsuarioService usuarioService;
 
 
     @PostMapping("/auth/login")
@@ -33,5 +37,14 @@ public class AuthController {
     public void registerUsuario(@RequestBody Usuario usuario){
         service.register(usuario);
     }
+
+    @GetMapping("/auth/administrator")
+     public Boolean isAdministrator(@RequestHeader String Authorization){
+        String id = JwtUtil.getUserIdByToken(Authorization);
+        Usuario usuario = usuarioService.getUsuario(Integer.valueOf(id));
+        System.out.println(usuario.getAdministrador());
+        return usuario.getAdministrador();
+    }
+
 }
 

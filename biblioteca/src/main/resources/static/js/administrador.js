@@ -1,6 +1,32 @@
-function init(){
-    renderLibro();
+async function init(){
+    if(isAdministrador()){
+       renderLibro();  
+    }
 
+
+
+ }
+
+ async function isAdministrador(){
+    let url = 'http://localhost:8080/api/' + 'auth/administrator';
+
+    let config = {
+        method: 'GET',
+        headers: {
+            'Content-Type' : 'application/json',
+            'Authorization' : sessionStorage.token 
+        }
+    }
+
+
+    let response = await fetch(url, config);
+    let administrator = await response.text();
+    if (administrator.includes(true)){
+       return true;
+    }else{
+        window.alert('Usted no tiene permisos de administrador');
+        window.location.href='login.html';
+    }
  }
 
  async function getLibros(){

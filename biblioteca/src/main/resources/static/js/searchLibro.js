@@ -24,7 +24,7 @@ function getHtmlRowLibros(libro, userAdmin){
                 <td>${libro.disponibles}</td>
                 <td>
                     <a href="#" onClick="onClickEdit(${libro.id})" class="btn btn-warning">Editar</a>
-                    <a href="#" onClick="onClickRemove(${libro.id})" class="btn btn-danger">Eliminar</a>
+                    <a href="#" onClick="isAdministrador(${libro.id})" class="btn btn-danger">Eliminar</a>
                 </td>
             </tr>`; 
     }else{
@@ -42,6 +42,7 @@ function getHtmlRowLibros(libro, userAdmin){
     }
 
     async function searchLibro(userAdmin){
+
         let titulo = document.getElementById('txtTitulo').value;
         let isbn = document.getElementById('txtIsbn').value;
         let url ="";
@@ -70,15 +71,42 @@ function getHtmlRowLibros(libro, userAdmin){
          renderLibro(json, userAdmin)
 
 
+
          /*await fetch(url, config);*/
         
     }
+
+    async function isAdministrador(id){
+        let url = 'http://localhost:8080/api/' + 'auth/administrator';
+    
+        let config = {
+            method: 'GET',
+            headers: {
+                'Content-Type' : 'application/json',
+                'Authorization' : sessionStorage.token 
+            }
+        }
+    
+    
+        let response = await fetch(url, config);
+        let administrator = await response.text();
+        if (administrator.includes(true)){
+            onClickRemove(id);
+        }else{
+            window.alert('Usted no tiene permisos de administrador');
+            window.location.href='login.html'; 
+        }
+     }
+
     async function onClickEdit(id) {
     
         window.location.href = 'editarLibro.html?id=' + id;
     }
     
     async function onClickRemove(id){
+        
+        
+ 
         let response = confirm("¿Quiere borrar este Libro?")
         if(!response){
             return;
@@ -93,5 +121,6 @@ function getHtmlRowLibros(libro, userAdmin){
         };
          await fetch(url, config);
          searchLibro();
+    
         
     }

@@ -1,5 +1,6 @@
 async function loadLibro(){
-    if (isNew()){
+    if(isAdministrador()){
+        if (isNew()){
         return;
     }
     let id = getLibroId();
@@ -10,7 +11,33 @@ async function loadLibro(){
     document.getElementById('txtIsbn').value = libro.isbn;
     document.getElementById('txtDisponibles').value = libro.disponibles;
     document.getElementById('txtId').value = libro.id;
+    }
+    
 }
+
+async function isAdministrador(){
+    let url = 'http://localhost:8080/api/' + 'auth/administrator';
+
+    let config = {
+        method: 'GET',
+        headers: {
+            'Content-Type' : 'application/json',
+            'Authorization' : sessionStorage.token 
+        }
+    }
+
+
+    let response = await fetch(url, config);
+    let administrator = await response.text();
+    if (administrator.includes(true)){
+       return true;
+    }else{
+        window.alert('Usted no tiene permisos de administrador');
+        window.location.href='login.html';
+    }
+ }
+
+
 
 function getLibroId(){
     let auxSplit = window.location.href.split('id=');
