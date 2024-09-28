@@ -42,6 +42,7 @@ public class UsuarioController {
 
         updateUsuario.setId(id);
         updateUsuario.setPassword(oldUser.getPassword());
+        updateUsuario.setAdministrador(false);
         service.updateCustomer(id,updateUsuario);
     }
 
