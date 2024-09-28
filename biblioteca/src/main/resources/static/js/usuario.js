@@ -9,7 +9,6 @@ function init(){
 
     let config = {
         method: 'GET',
-        body: JSON.stringify(usuario.prestamo),
         headers: {
             'Content-Type' : 'application/json',
             'Authorization' : sessionStorage.token 
@@ -42,10 +41,7 @@ function getHtmlRowLibros(libro){
                 <td>${libro.autor}</td>
                 <td>${libro.isbn}</td>
                 <td>${libro.disponibles}</td>
-                <td>
-                    <a href="#" onClick="onClickEdit(${libro.id})" class="btn btn-warning">Editar</a>
-                    <a href="#" onClick="onClickRemove(${libro.id})" class="btn btn-danger">Eliminar</a>
-                </td>
+                
             </tr>`;
     
     }

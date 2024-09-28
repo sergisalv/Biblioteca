@@ -1,7 +1,10 @@
 package com.sergisalv.biblioteca.controller;
 
+import com.sergisalv.biblioteca.Utils.JwtUtil;
 import com.sergisalv.biblioteca.entities.Libro;
+import com.sergisalv.biblioteca.entities.Usuario;
 import com.sergisalv.biblioteca.services.LibroService;
+import com.sergisalv.biblioteca.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,14 +18,19 @@ public class LibroController {
     @Autowired
     private LibroService service;
 
+    @Autowired
+    private UsuarioService usuarioService;
+
     @GetMapping("/libro/{id}") //Trae un libro específico por su id
     public Libro getLibro(@PathVariable Integer id) {
         return service.getLibro(id);
     }
 
     @GetMapping("/libro/prestamo") //Trae los libros que haya en préstamo
-    public List<Libro> getLibrosPrestamo(@RequestBody String prestamo){
-        return service.getLibrosPrestamo(prestamo);
+    public List<Libro> getLibrosPrestamo(@RequestHeader String Authorization){
+        String usuarioId = JwtUtil.getUserIdByToken(Authorization);
+        Usuario usuario = usuarioService.getUsuario(Integer.valueOf(usuarioId));
+        return service.getLibrosPrestamo(usuario.getPrestamo());
     }
     
     @GetMapping("/libro") //Trae todos los libros
