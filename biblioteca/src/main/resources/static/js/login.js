@@ -23,7 +23,7 @@ async function login() {
 
    sessionStorage.token = token;
 
-    isAdministrador();
+    existe();
    
 
 
@@ -32,7 +32,32 @@ async function login() {
 
 }
 
+async function existe(){
+    let url = 'http://localhost:8080/api/' + 'auth/existeUsuario';
+    let config = {
+        method: 'GET',
+        headers: {
+            'Content-Type' : 'application/json',
+            'Authorization' : sessionStorage.token 
+        }
+    }
+
+
+    let response = await fetch(url, config);
+    let existe = await response.text();
+    if (existe.includes(true)){
+      isAdministrador();
+    }else{
+       window.alert("No existe usuario o datos incorrectos");
+    }
+
+
+}
+
 async function isAdministrador(){
+
+
+
     let url = 'http://localhost:8080/api/' + 'auth/administrator';
 
     let config = {

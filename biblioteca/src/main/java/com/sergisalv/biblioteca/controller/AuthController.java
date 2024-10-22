@@ -38,6 +38,14 @@ public class AuthController {
         service.register(usuario);
     }
 
+    @GetMapping("/auth/existeUsuario")
+    public Boolean existe(@RequestHeader String Authorization){
+        String id = JwtUtil.getUserIdByToken(Authorization);
+        Usuario usuario = usuarioService.getUsuario(Integer.valueOf(id));
+        return usuario != null;
+    }
+
+
     @GetMapping("/auth/administrator")
      public Boolean isAdministrator(@RequestHeader String Authorization){
         String id = JwtUtil.getUserIdByToken(Authorization);
