@@ -34,7 +34,7 @@ function getHtmlRowUsuarios(usuario){
         if(isAdministrador()){
           let email = document.getElementById('txtEmail').value;
     
-        let url = 'http://localhost:8080/api/' + 'usuario/search?email=' + email;
+        let url = 'http://localhost:8001/api/' + 'usuario/search?email=' + email;
         let config = {
             method: 'GET',
             headers: {
@@ -56,7 +56,7 @@ function getHtmlRowUsuarios(usuario){
     }
 
     async function isAdministrador(){
-        let url = 'http://localhost:8080/api/' + 'auth/administrator';
+        let url = 'http://localhost:8001/api/' + 'auth/administrator';
     
         let config = {
             method: 'GET',
@@ -89,7 +89,7 @@ function getHtmlRowUsuarios(usuario){
         if(!response){
             return;
         }
-        let url = 'http://localhost:8080/api/' + 'usuario/' + id;
+        let url = 'http://localhost:8001/api/' + 'usuario/' + id;
         let config = {
             method: 'DELETE',
             headers: {
