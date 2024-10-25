@@ -52,7 +52,7 @@ function isNew(){
 }
 
 async function getLibrosById(id){
-    let url = 'http://localhost:8001/api/' + 'libro/' + id;
+    let url = 'http://192.168.0.9:8001/api/' + 'libro/' + id;
     let config = {
         method: 'GET',
         headers: {
@@ -86,7 +86,7 @@ function clickCreate(){
 
 async function save(libro){
      
-    let url = 'http://localhost:8001/api/' + 'libro';
+    let url = 'http://192.168.0.9:8001/api/' + 'libro';
     let methodType = isNew() ? 'Post' : 'Put'; 
 
     if (!isNew()){

@@ -77,7 +77,7 @@ function getHtmlRowLibros(libro, userAdmin){
     }
 
     async function isAdministrador(id){
-        let url = 'http://localhost:8001/api/' + 'auth/administrator';
+        let url = 'http://192.168.0.9:8001/api/' + 'auth/administrator';
     
         let config = {
             method: 'GET',
@@ -111,7 +111,7 @@ function getHtmlRowLibros(libro, userAdmin){
         if(!response){
             return;
         }
-        let url = 'http://localhost:8001/api/' + 'libro/' + id;
+        let url = 'http://192.168.0.9:8001/api/' + 'libro/' + id;
         let config = {
             method: 'DELETE',
             headers: {

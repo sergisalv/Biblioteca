@@ -48,7 +48,7 @@ function isNew(){
 }
 
 async function getUsuariosById(id){
-    let url = 'http://localhost:8001/api/' + 'usuario/' + id;
+    let url = 'http://192.168.0.9:8001/api/' + 'usuario/' + id;
     let config = {
         method: 'GET',
         headers: {
@@ -79,7 +79,7 @@ function clickCreate(){
 
 async function save(usuario){
      
-    let url = 'http://localhost:8001/api/' + 'usuario';
+    let url = 'http://192.168.0.9:8001/api/' + 'usuario';
     let methodType = isNew() ? 'Post' : 'Put'; 
 
     if (!isNew()){

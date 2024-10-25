@@ -5,7 +5,7 @@ function init(){
 
  async function getLibros(){
 
-    let url = 'http://localhost:8001/api/' + 'libro/prestamo';
+    let url = 'http://192.168.0.9:8001/api/' + 'libro/prestamo';
 
     let config = {
         method: 'GET',
