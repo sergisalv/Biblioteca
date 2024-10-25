@@ -89,7 +89,7 @@ function getHtmlRowUsuarios(usuario){
         if(!response){
             return;
         }
-        let url = 'http://localhost:8001/api/' + 'usuario/' + id;
+        let url = 'http://http://192.168.0.9:8001/api/' + 'usuario/' + id;
         let config = {
             method: 'DELETE',
             headers: {
