@@ -49,11 +49,11 @@ function getHtmlRowLibros(libro, userAdmin){
 
 
         if(titulo != "" && isbn == ""){
-          url = 'http://http://192.168.0.9:8001/api/' + 'libro/search?titulo=' + titulo;
+          url = 'http://192.168.0.9:8001/api/' + 'libro/search?titulo=' + titulo;
         }else if(isbn != "" && titulo == ""){
-         url = 'http://http://192.168.0.9:8001/api/' + 'libro/search?isbn=' + isbn;
+         url = 'http://192.168.0.9:8001/api/' + 'libro/search?isbn=' + isbn;
         }else if(titulo != "" && isbn != ""){
-            url = 'http://http://192.168.0.9:8001/api/' + 'libro/search?isbn=' + isbn + '&&titulo=' + titulo;
+            url = 'http://192.168.0.9:8001/api/' + 'libro/search?isbn=' + isbn + '&&titulo=' + titulo;
         }else{
             window.alert("Debe introducir al menos uno de los parámetros")
         }
