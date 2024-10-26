@@ -14,7 +14,7 @@ async function loadUsuario(){
 }
 
 async function isAdministrador(){
-    let url = URL_SERVER + 'auth/administrator';
+    let url = 'http://sergisalv27.duckdns.org:8001/api/' + 'auth/administrator';
 
     let config = {
         method: 'GET',
@@ -48,7 +48,7 @@ function isNew(){
 }
 
 async function getUsuariosById(id){
-    let url = URL_SERVER + 'usuario/' + id;
+    let url = 'http://sergisalv27.duckdns.org:8001/api/' + 'usuario/' + id;
     let config = {
         method: 'GET',
         headers: {
@@ -79,7 +79,7 @@ function clickCreate(){
 
 async function save(usuario){
      
-    let url = URL_SERVER + 'usuario';
+    let url = 'http://sergisalv27.duckdns.org:8001/api/' + 'usuario';
     let methodType = isNew() ? 'Post' : 'Put'; 
 
     if (!isNew()){

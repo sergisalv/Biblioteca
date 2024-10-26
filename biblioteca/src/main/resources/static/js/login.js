@@ -33,7 +33,7 @@ async function login() {
 }
 
 async function existe(){
-    let url = URL_SERVER + 'auth/existeUsuario';
+    let url = 'http://sergisalv27.duckdns.org:8001/api/' + 'auth/existeUsuario';
     let config = {
         method: 'GET',
         headers: {
@@ -58,7 +58,7 @@ async function isAdministrador(){
 
 
 
-    let url = URL_SERVER + 'auth/administrator';
+    let url = 'http://sergisalv27.duckdns.org:8001/api/' + 'auth/administrator';
 
     let config = {
         method: 'GET',
