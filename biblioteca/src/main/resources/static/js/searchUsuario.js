@@ -34,7 +34,7 @@ function getHtmlRowUsuarios(usuario){
         if(isAdministrador()){
           let email = document.getElementById('txtEmail').value;
     
-        let url = 'http://192.168.0.9:8001' + 'usuario/search?email=' + email;
+        let url = 'http://192.168.0.9:8001/' + 'usuario/search?email=' + email;
         let config = {
             method: 'GET',
             headers: {
