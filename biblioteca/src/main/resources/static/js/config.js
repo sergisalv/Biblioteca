@@ -1,0 +1,1 @@
+const URL_SERVER = 'http://sergisalv27.duckdns.org:8001/api/';

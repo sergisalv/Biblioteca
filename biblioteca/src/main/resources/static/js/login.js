@@ -33,7 +33,7 @@ async function login() {
 }
 
 async function existe(){
-    let url = 'http://192.168.0.9:8001/api/' + 'auth/existeUsuario';
+    let url = URL_SERVER + 'auth/existeUsuario';
     let config = {
         method: 'GET',
         headers: {
@@ -58,7 +58,7 @@ async function isAdministrador(){
 
 
 
-    let url = 'http://192.168.0.9:8001/api/' + 'auth/administrator';
+    let url = URL_SERVER + 'auth/administrator';
 
     let config = {
         method: 'GET',
