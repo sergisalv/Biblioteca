@@ -18,7 +18,7 @@ async function crearUsuario() {
 
     };
 
-await fetch('/api/auth/register', config);
+await fetch('http://sergisalv27.duckdns.org:8001/api/auth/register', config);
    
 
 
