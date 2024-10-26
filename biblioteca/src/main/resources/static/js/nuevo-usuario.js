@@ -9,16 +9,20 @@ async function crearUsuario() {
     };
 
     var config = {
-        "method": 'POST' ,
+        "method": 'POST',
+        "body": JSON.stringify(body),
         "headers": {
             "Content-Type": 'application/json'
-        },
+        }
 
-        "body": JSON.stringify(body)
+
 
     };
 
 await fetch('http://sergisalv27.duckdns.org:8001/api/auth/register', config);
+
+window.location.href = 'login.html'
+
    
 
 
