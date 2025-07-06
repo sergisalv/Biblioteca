@@ -1,3 +1,4 @@
+
 async function init(){
     if(isAdministrador()){
        renderLibro();  
@@ -8,7 +9,7 @@ async function init(){
  }
 
  async function isAdministrador(){
-    let url = 'http://sergisalv27.duckdns.org:8001/api/' + 'auth/administrator';
+    let url = 'http://localhost:8001/api/' + 'auth/administrator';
 
     let config = {
         method: 'GET',
@@ -29,8 +30,8 @@ async function init(){
     }
  }
 
- async function getLibros(){
-    let url = 'http://sergisalv27.duckdns.org:8001/api/' + 'libro';
+async function getLibros(){
+    let url = 'http://localhost:8001/api/' + 'libro';
 
     let config = {
         method: 'GET',
@@ -72,7 +73,7 @@ async function onClickRemove(id){
     if(!response){
         return;
     }
-    let url = 'http://sergisalv27.duckdns.org:8001/api/' + 'libro/' + id;
+    let url = 'http://localhost:8001/api/' + 'libro/' + id;
     let config = {
         method: 'DELETE',
         headers: {

@@ -50,7 +50,6 @@ public class AuthController {
      public Boolean isAdministrator(@RequestHeader String Authorization){
         String id = JwtUtil.getUserIdByToken(Authorization);
         Usuario usuario = usuarioService.getUsuario(Integer.valueOf(id));
-        System.out.println(usuario.getAdministrador());
         return usuario.getAdministrador();
     }
 

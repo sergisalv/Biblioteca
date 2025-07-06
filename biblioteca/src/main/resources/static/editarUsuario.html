@@ -21,8 +21,13 @@
                 <input class="form-control" type ="text" id="txtEmail" placeholder="Email">
             </div>
             <div class="mb-3">
-                <label id="prestamo" class="form-label" style="color: white">En Préstamo (Formato: 1,2,3)</label>
-                <input class="form-control" type ="text" id="txtPrestamo" placeholder="En Préstamo">
+                <label class="form-label" style="color: white">En Préstamo</label>
+                <div id="contenedorPrestamos" class="list-group"></div>
+                <div class="input-group mt-2">
+                    <select id="selectLibros" class="form-select"></select>
+                    <button id="btnAgregarLibro" class="btn btn-success">Añadir</button>
+                </div>
+                <input type="hidden" id="txtPrestamo" />
             </div>
             <hr>
             <div class="text-center mb-3">

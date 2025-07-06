@@ -49,11 +49,11 @@ function getHtmlRowLibros(libro, userAdmin){
 
 
         if(titulo != "" && isbn == ""){
-          url = 'http://sergisalv27.duckdns.org:8001/api/' + 'libro/search?titulo=' + titulo;
+          url = 'http://localhost:8001/api/' + 'libro/search?titulo=' + titulo;
         }else if(isbn != "" && titulo == ""){
-         url = 'http://sergisalv27.duckdns.org:8001/api/' + 'libro/search?isbn=' + isbn;
+         url = 'http://localhost:8001/api/' + 'libro/search?isbn=' + isbn;
         }else if(titulo != "" && isbn != ""){
-            url = 'http://sergisalv27.duckdns.org:8001/api/' + 'libro/search?isbn=' + isbn + '&&titulo=' + titulo;
+            url = 'http://localhost:8001/api/' + 'libro/search?isbn=' + isbn + '&&titulo=' + titulo;
         }else{
             window.alert("Debe introducir al menos uno de los parámetros")
         }
@@ -77,7 +77,7 @@ function getHtmlRowLibros(libro, userAdmin){
     }
 
     async function isAdministrador(id){
-        let url = 'http://sergisalv27.duckdns.org:8001/api/' + 'auth/administrator';
+        let url = 'http://localhost:8001/api/' + 'auth/administrator';
     
         let config = {
             method: 'GET',
@@ -111,7 +111,7 @@ function getHtmlRowLibros(libro, userAdmin){
         if(!response){
             return;
         }
-        let url = 'http://sergisalv27.duckdns.org:8001/api/' + 'libro/' + id;
+        let url = 'http://localhost:8001/api/' + 'libro/' + id;
         let config = {
             method: 'DELETE',
             headers: {

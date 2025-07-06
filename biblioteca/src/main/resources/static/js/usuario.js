@@ -5,7 +5,7 @@ function init(){
 
  async function getLibros(){
 
-    let url = 'http://sergisalv27.duckdns.org:8001/api/' + 'libro/prestamo';
+    let url = 'http://localhost:8001/api/' + 'libro/prestamo';
 
     let config = {
         method: 'GET',
