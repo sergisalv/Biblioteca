@@ -1,3 +1,7 @@
+const API_BASE = window.location.origin.includes("localhost")
+    ? "http://localhost:8001/api"
+    : "/api";
+
 
 async function renderLibro(json, userAdmin){
     let libros = await json;
@@ -49,11 +53,11 @@ function getHtmlRowLibros(libro, userAdmin){
 
 
         if(titulo != "" && isbn == ""){
-          url = 'http://localhost:8001/api/' + 'libro/search?titulo=' + titulo;
+          url = `${API_BASE}/libro/search?titulo=` + titulo;
         }else if(isbn != "" && titulo == ""){
-         url = 'http://localhost:8001/api/' + 'libro/search?isbn=' + isbn;
+         url = `${API_BASE}/libro/search?isbn=` + isbn;
         }else if(titulo != "" && isbn != ""){
-            url = 'http://localhost:8001/api/' + 'libro/search?isbn=' + isbn + '&&titulo=' + titulo;
+            url = `${API_BASE}/libro/search?isbn=` + isbn + '&&titulo=' + titulo;
         }else{
             window.alert("Debe introducir al menos uno de los parámetros")
         }
@@ -77,7 +81,7 @@ function getHtmlRowLibros(libro, userAdmin){
     }
 
     async function isAdministrador(id){
-        let url = 'http://localhost:8001/api/' + 'auth/administrator';
+        let url = `${API_BASE}/auth/administrator`;
     
         let config = {
             method: 'GET',
@@ -111,7 +115,7 @@ function getHtmlRowLibros(libro, userAdmin){
         if(!response){
             return;
         }
-        let url = 'http://localhost:8001/api/' + 'libro/' + id;
+        let url = `${API_BASE}/libro/` + id;
         let config = {
             method: 'DELETE',
             headers: {

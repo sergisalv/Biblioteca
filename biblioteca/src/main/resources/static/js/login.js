@@ -1,3 +1,7 @@
+const API_BASE = window.location.origin.includes("localhost")
+    ? "http://localhost:8001/api"
+    : "/api";
+
 async function login() {
     var email = document.getElementById("txtEmail").value;
     var password = document.getElementById("txtPassword").value;
@@ -17,7 +21,7 @@ async function login() {
 
     };
 
-    let response = await fetch('/api/auth/login', config);
+    let response = await fetch(`${API_BASE}/auth/login`, config);
 
    let token = await response.text();
 
@@ -33,7 +37,7 @@ async function login() {
 }
 
 async function existe(){
-    let url = 'http://localhost:8001/api/' + 'auth/existeUsuario';
+    let url = `${API_BASE}/auth/existeUsuario`;
     let config = {
         method: 'GET',
         headers: {
@@ -58,7 +62,7 @@ async function isAdministrador(){
 
 
 
-    let url = 'http://localhost:8001/api/' + 'auth/administrator';
+    let url = `${API_BASE}/auth/administrator`;
 
     let config = {
         method: 'GET',

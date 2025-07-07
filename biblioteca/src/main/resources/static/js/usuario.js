@@ -1,3 +1,7 @@
+const API_BASE = window.location.origin.includes("localhost")
+    ? "http://localhost:8001/api"
+    : "/api";
+
 function init(){
     renderLibro();
  
@@ -5,7 +9,7 @@ function init(){
 
  async function getLibros(){
 
-    let url = 'http://localhost:8001/api/' + 'libro/prestamo';
+    let url = `${API_BASE}/libro/prestamo`;
 
     let config = {
         method: 'GET',

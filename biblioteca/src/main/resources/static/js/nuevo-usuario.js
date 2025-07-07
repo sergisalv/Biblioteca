@@ -1,3 +1,7 @@
+const API_BASE = window.location.origin.includes("localhost")
+    ? "http://localhost:8001/api"
+    : "/api";
+
 async function crearUsuario() {
     var email = document.getElementById("txtEmail").value;
     var password = document.getElementById("txtPassword").value;
@@ -19,7 +23,7 @@ async function crearUsuario() {
 
     };
 
-await fetch('http://localhost:8001/api//api/auth/register', config);
+await fetch(`${API_BASE}/auth/register`, config);
 
 window.location.href = 'login.html'
 

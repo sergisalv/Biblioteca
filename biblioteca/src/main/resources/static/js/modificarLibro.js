@@ -1,3 +1,7 @@
+const API_BASE = window.location.origin.includes("localhost")
+    ? "http://localhost:8001/api"
+    : "/api";
+
 async function loadLibro(){
     if(isAdministrador()){
         if (isNew()){
@@ -16,7 +20,7 @@ async function loadLibro(){
 }
 
 async function isAdministrador(){
-    let url = 'http://localhost:8001/api/' + 'auth/administrator';
+    let url = `${API_BASE}/auth/administrator`;
 
     let config = {
         method: 'GET',
@@ -52,7 +56,7 @@ function isNew(){
 }
 
 async function getLibrosById(id){
-    let url = 'http://localhost:8001/api/' + 'libro/' + id;
+    let url = `${API_BASE}/libro/` + id;
     let config = {
         method: 'GET',
         headers: {
@@ -86,7 +90,7 @@ function clickCreate(){
 
 async function save(libro){
      
-    let url = 'http://localhost:8001/api/' + 'libro';
+    let url = `${API_BASE}/libro`;
     let methodType = isNew() ? 'Post' : 'Put'; 
 
     if (!isNew()){
